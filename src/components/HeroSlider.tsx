@@ -95,10 +95,18 @@ const HeroSlider = () => {
                 </p>
 
                 <div className="flex flex-wrap gap-4">
-                  <Button variant="hero" size="xl">
+                  <Button 
+                    variant="hero" 
+                    size="xl"
+                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  >
                     Enroll Now
                   </Button>
-                  <Button variant="heroOutline" size="xl">
+                  <Button 
+                    variant="heroOutline" 
+                    size="xl"
+                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  >
                     Schedule Visit
                   </Button>
                 </div>
