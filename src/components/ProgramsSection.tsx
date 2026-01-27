@@ -95,7 +95,12 @@ const ProgramsSection = () => {
               <p className="text-muted-foreground mb-4">
                 {program.description}
               </p>
-              <Button variant="outline" size="sm" className="w-full">
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="w-full"
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              >
                 Learn More
               </Button>
             </motion.div>
@@ -117,7 +122,13 @@ const ProgramsSection = () => {
               Available from 1 year onwards with safe, caring and homely environment. 
               Activities include story time, music, art, indoor & outdoor play, yoga and nap time.
             </p>
-            <Button variant="warm" size="sm">Enquire About Daycare</Button>
+            <Button 
+              variant="warm" 
+              size="sm"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Enquire About Daycare
+            </Button>
           </div>
 
           <div className="bg-gradient-to-br from-forest-light to-sky-light rounded-2xl p-6 border border-border/30">
@@ -128,7 +139,13 @@ const ProgramsSection = () => {
               Available for children from 4 years onwards including homework support, 
               reading, art, games and supervised play.
             </p>
-            <Button variant="default" size="sm">Learn More</Button>
+            <Button 
+              variant="default" 
+              size="sm"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Learn More
+            </Button>
           </div>
         </motion.div>
       </div>
