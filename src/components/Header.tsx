@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import schoolLogo from "@/assets/school-logo.jpg";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -31,17 +32,14 @@ const Header = () => {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-3"
+            className="flex items-center gap-3 cursor-pointer"
+            onClick={() => scrollToSection("#home")}
           >
-            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-forest to-forest-dark flex items-center justify-center">
-              <span className="text-primary-foreground font-heading font-bold text-xl">V</span>
-            </div>
-            <div className="hidden sm:block">
-              <h1 className="font-heading font-bold text-lg text-foreground leading-tight">
-                Vrindavan
-              </h1>
-              <p className="text-xs text-muted-foreground">Early Learning Centre</p>
-            </div>
+            <img 
+              src={schoolLogo} 
+              alt="Vrindavan Early Learning Centre" 
+              className="h-14 w-auto object-contain"
+            />
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -62,7 +60,12 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="warm" size="lg" className="gap-2">
+            <Button 
+              variant="warm" 
+              size="lg" 
+              className="gap-2"
+              onClick={() => scrollToSection("#contact")}
+            >
               <Phone className="w-4 h-4" />
               Enquire Now
             </Button>
@@ -98,7 +101,12 @@ const Header = () => {
                   {link.label}
                 </button>
               ))}
-              <Button variant="warm" size="lg" className="mt-4 gap-2">
+              <Button 
+                variant="warm" 
+                size="lg" 
+                className="mt-4 gap-2"
+                onClick={() => scrollToSection("#contact")}
+              >
                 <Phone className="w-4 h-4" />
                 Enquire Now
               </Button>

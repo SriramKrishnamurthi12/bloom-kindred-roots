@@ -1,10 +1,10 @@
-import { Heart, Leaf, Instagram, Facebook, MessageCircle } from "lucide-react";
+import { Heart, Instagram, Facebook, MessageCircle } from "lucide-react";
+import schoolLogo from "@/assets/school-logo.jpg";
 
-// TODO: Replace these with actual URLs
 const SOCIAL_LINKS = {
-  whatsapp: "https://wa.me/919999999999", // Replace with actual number
-  instagram: "https://instagram.com/vrindavan_elc", // Replace with actual handle
-  facebook: "https://facebook.com/vrindavanelc", // Replace with actual page
+  whatsapp: "https://wa.me/918591698387",
+  instagram: "https://instagram.com/vrindavan_elc", // Update with actual handle
+  facebook: "https://facebook.com/vrindavanelc", // Update with actual page
 };
 
 const Footer = () => {
@@ -17,13 +17,11 @@ const Footer = () => {
           {/* Logo & Tagline */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-forest to-sunshine flex items-center justify-center">
-                <Leaf className="w-6 h-6 text-card" />
-              </div>
-              <div>
-                <h3 className="font-heading font-bold text-lg">Vrindavan</h3>
-                <p className="text-sm text-card/70">Early Learning Centre</p>
-              </div>
+              <img 
+                src={schoolLogo} 
+                alt="Vrindavan Early Learning Centre" 
+                className="h-16 w-auto object-contain bg-white rounded-lg p-1"
+              />
             </div>
             <p className="text-card/80 text-sm mb-4">
               Rooted in Values, Growing with Confidence

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Target, Eye, Quote } from "lucide-react";
+import founderPhoto from "@/assets/founder-photo.jpg";
 
 const AboutSection = () => {
   return (
@@ -86,11 +87,15 @@ const AboutSection = () => {
           <div className="absolute top-0 right-0 w-64 h-64 bg-sunshine/10 rounded-full blur-3xl" />
           <div className="absolute bottom-0 left-0 w-48 h-48 bg-peach/10 rounded-full blur-3xl" />
           
-          <div className="relative z-10 grid md:grid-cols-3 gap-8 items-center">
+          <div className="grid md:grid-cols-3 gap-8 items-center">
             <div className="text-center md:text-left">
               <Quote className="w-12 h-12 text-sunshine mb-4 mx-auto md:mx-0" />
-              <div className="w-32 h-32 rounded-full bg-gradient-to-br from-sunshine to-peach mx-auto md:mx-0 flex items-center justify-center">
-                <span className="text-4xl font-heading font-bold text-foreground">LK</span>
+              <div className="w-32 h-32 rounded-full overflow-hidden mx-auto md:mx-0 border-4 border-sunshine/30">
+                <img 
+                  src={founderPhoto} 
+                  alt="Latha Krishnamurthi - Founder" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3 className="text-xl font-heading font-bold text-primary-foreground mt-4">
                 Latha Krishnamurthi
