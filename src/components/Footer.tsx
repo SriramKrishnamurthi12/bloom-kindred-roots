@@ -1,4 +1,11 @@
-import { Heart, Leaf } from "lucide-react";
+import { Heart, Leaf, Instagram, Facebook, MessageCircle } from "lucide-react";
+
+// TODO: Replace these with actual URLs
+const SOCIAL_LINKS = {
+  whatsapp: "https://wa.me/919999999999", // Replace with actual number
+  instagram: "https://instagram.com/vrindavan_elc", // Replace with actual handle
+  facebook: "https://facebook.com/vrindavanelc", // Replace with actual page
+};
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -18,9 +25,38 @@ const Footer = () => {
                 <p className="text-sm text-card/70">Early Learning Centre</p>
               </div>
             </div>
-            <p className="text-card/80 text-sm">
+            <p className="text-card/80 text-sm mb-4">
               Rooted in Values, Growing with Confidence
             </p>
+            <div className="flex gap-3">
+              <a
+                href={SOCIAL_LINKS.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-card/10 hover:bg-sunshine transition-colors flex items-center justify-center"
+                aria-label="WhatsApp"
+              >
+                <MessageCircle className="w-5 h-5 text-card" />
+              </a>
+              <a
+                href={SOCIAL_LINKS.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-card/10 hover:bg-sunshine transition-colors flex items-center justify-center"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5 text-card" />
+              </a>
+              <a
+                href={SOCIAL_LINKS.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-card/10 hover:bg-sunshine transition-colors flex items-center justify-center"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-5 h-5 text-card" />
+              </a>
+            </div>
           </div>
 
           {/* Quick Links */}
