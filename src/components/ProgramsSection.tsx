@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Baby, BookOpen, GraduationCap, School, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ProgramDetailDialog from "./ProgramDetailDialog";
 
 const programs = [
   {
@@ -8,6 +10,7 @@ const programs = [
     title: "Playgroup",
     age: "2–3 Years",
     description: "Social skills, rhymes, stories, free play and routines.",
+    hasDetails: true,
     color: "bg-peach-light",
     iconBg: "bg-peach",
     iconColor: "text-secondary-foreground",
@@ -20,6 +23,7 @@ const programs = [
     color: "bg-sky-light",
     iconBg: "bg-sky",
     iconColor: "text-card",
+    hasDetails: true,
   },
   {
     icon: GraduationCap,
@@ -29,6 +33,7 @@ const programs = [
     color: "bg-forest-light",
     iconBg: "bg-forest",
     iconColor: "text-primary-foreground",
+    hasDetails: true,
   },
   {
     icon: School,
@@ -38,6 +43,7 @@ const programs = [
     color: "bg-lavender-light",
     iconBg: "bg-lavender",
     iconColor: "text-card",
+    hasDetails: true,
   },
   {
     icon: Sun,
@@ -47,10 +53,12 @@ const programs = [
     color: "bg-sunshine-light",
     iconBg: "bg-sunshine",
     iconColor: "text-accent-foreground",
+    hasDetails: false,
   },
 ];
 
 const ProgramsSection = () => {
+  const [selectedProgram, setSelectedProgram] = useState<string | null>(null);
   return (
     <section id="programs" className="section-padding bg-background">
       <div className="container-custom mx-auto">
@@ -99,7 +107,13 @@ const ProgramsSection = () => {
                 variant="outline" 
                 size="sm" 
                 className="w-full"
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => {
+                  if (program.hasDetails) {
+                    setSelectedProgram(program.title);
+                  } else {
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
               >
                 Learn More
               </Button>
@@ -149,6 +163,12 @@ const ProgramsSection = () => {
           </div>
         </motion.div>
       </div>
+
+      <ProgramDetailDialog
+        open={!!selectedProgram}
+        onOpenChange={(open) => !open && setSelectedProgram(null)}
+        program={selectedProgram}
+      />
     </section>
   );
 };
