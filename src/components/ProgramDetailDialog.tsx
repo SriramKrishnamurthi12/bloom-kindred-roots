@@ -1,10 +1,12 @@
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { Baby, BookOpen, GraduationCap, School } from "lucide-react";
 
 interface ProgramDetailDialogProps {
@@ -91,7 +93,7 @@ const ProgramDetailDialog = ({
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
-        <DialogHeader>
+        <DialogHeader className="text-left">
           <div className="flex items-center gap-4 mb-2">
             <div
               className={`w-14 h-14 rounded-xl ${details.iconBg} flex items-center justify-center`}
@@ -102,6 +104,11 @@ const ProgramDetailDialog = ({
               <DialogTitle className="text-2xl font-heading">
                 {program}
               </DialogTitle>
+              <VisuallyHidden>
+                <DialogDescription>
+                  Details about the {program} program for ages {details.age}
+                </DialogDescription>
+              </VisuallyHidden>
               <span className="text-muted-foreground">{details.age}</span>
             </div>
           </div>
