@@ -41,8 +41,9 @@ const ContactSection = () => {
                 <div>
                   <h3 className="text-lg font-heading font-bold text-foreground mb-1">Location</h3>
                   <p className="text-muted-foreground">
-                    Sector 12, Kharghar<br />
-                    Navi Mumbai, Maharashtra
+                    Plot B-5&6, Sector 12, Prime Mall Lane,<br />
+                    Kharghar, Behind Pranaam Hotel<br />
+                    Navi Mumbai - 410210
                   </p>
                 </div>
               </div>
@@ -56,7 +57,9 @@ const ContactSection = () => {
                 <div>
                   <h3 className="text-lg font-heading font-bold text-foreground mb-1">Phone</h3>
                   <p className="text-muted-foreground">
-                    Call us for enquiries
+                    <a href="tel:+918591698387" className="hover:text-primary transition-colors">
+                      +91 85916 98387
+                    </a>
                   </p>
                 </div>
               </div>
@@ -70,7 +73,14 @@ const ContactSection = () => {
                 <div>
                   <h3 className="text-lg font-heading font-bold text-foreground mb-1">WhatsApp</h3>
                   <p className="text-muted-foreground">
-                    Quick response via WhatsApp
+                    <a 
+                      href="https://wa.me/918591698387" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="hover:text-primary transition-colors"
+                    >
+                      Quick response via WhatsApp
+                    </a>
                   </p>
                 </div>
               </div>
