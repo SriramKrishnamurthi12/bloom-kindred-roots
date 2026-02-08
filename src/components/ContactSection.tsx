@@ -1,10 +1,63 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, MessageCircle, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const ContactSection = () => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    parentName: "",
+    phone: "",
+    email: "",
+    childAge: "",
+    message: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!formData.parentName || !formData.phone || !formData.email || !formData.message) {
+      toast({ title: "Missing fields", description: "Please fill in all required fields.", variant: "destructive" });
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      toast({ title: "Invalid email", description: "Please enter a valid email address.", variant: "destructive" });
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("send-contact-form", {
+        body: formData,
+      });
+
+      if (error) throw error;
+
+      toast({ title: "Enquiry sent!", description: "We'll get back to you shortly." });
+      setFormData({ parentName: "", phone: "", email: "", childAge: "", message: "" });
+    } catch (err: any) {
+      console.error("Contact form error:", err);
+      toast({
+        title: "Failed to send",
+        description: "Something went wrong. Please try WhatsApp or call us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="contact" className="section-padding bg-gradient-to-b from-background to-forest-light/30">
       <div className="container-custom mx-auto">
@@ -112,35 +165,50 @@ const ContactSection = () => {
               <h3 className="text-2xl font-heading font-bold text-foreground mb-6">
                 Send us a Message
               </h3>
-              <form className="space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="text-sm font-medium text-foreground mb-2 block">
-                      Parent's Name
+                      Parent's Name *
                     </label>
                     <Input 
+                      name="parentName"
+                      value={formData.parentName}
+                      onChange={handleChange}
                       placeholder="Your name" 
                       className="rounded-xl h-12"
+                      maxLength={100}
+                      required
                     />
                   </div>
                   <div>
                     <label className="text-sm font-medium text-foreground mb-2 block">
-                      Phone Number
+                      Phone Number *
                     </label>
                     <Input 
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
                       placeholder="Your phone" 
                       className="rounded-xl h-12"
+                      maxLength={20}
+                      required
                     />
                   </div>
                 </div>
                 <div>
                   <label className="text-sm font-medium text-foreground mb-2 block">
-                    Email
+                    Email *
                   </label>
                   <Input 
+                    name="email"
                     type="email" 
+                    value={formData.email}
+                    onChange={handleChange}
                     placeholder="Your email" 
                     className="rounded-xl h-12"
+                    maxLength={255}
+                    required
                   />
                 </div>
                 <div>
@@ -148,21 +216,37 @@ const ContactSection = () => {
                     Child's Age
                   </label>
                   <Input 
+                    name="childAge"
+                    value={formData.childAge}
+                    onChange={handleChange}
                     placeholder="e.g., 2.5 years" 
                     className="rounded-xl h-12"
+                    maxLength={20}
                   />
                 </div>
                 <div>
                   <label className="text-sm font-medium text-foreground mb-2 block">
-                    Message
+                    Message *
                   </label>
                   <Textarea 
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     placeholder="Tell us about your enquiry..."
                     className="rounded-xl min-h-[120px] resize-none"
+                    maxLength={2000}
+                    required
                   />
                 </div>
-                <Button variant="hero" size="xl" className="w-full">
-                  Send Enquiry
+                <Button variant="hero" size="xl" className="w-full" type="submit" disabled={isSubmitting}>
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    "Send Enquiry"
+                  )}
                 </Button>
               </form>
             </div>
