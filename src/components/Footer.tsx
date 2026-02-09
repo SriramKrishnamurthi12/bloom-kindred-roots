@@ -1,10 +1,11 @@
-import { Heart, Instagram, Facebook, MessageCircle } from "lucide-react";
+import { Instagram, Facebook, MessageCircle, Mail } from "lucide-react";
 import schoolLogo from "@/assets/school-logo.jpg";
 
 const SOCIAL_LINKS = {
   whatsapp: "https://wa.me/918591698387",
-  instagram: "https://instagram.com/vrindavan_elc", // Update with actual handle
-  facebook: "https://facebook.com/vrindavanelc", // Update with actual page
+  instagram: "https://www.instagram.com/vrind_avan114?igsh=a2RmeHNxamw4eWc5",
+  facebook: "https://www.facebook.com/share/15WFULjH9ZP/",
+  email: "mailto:admin@velc.in",
 };
 
 const Footer = () => {
@@ -54,6 +55,13 @@ const Footer = () => {
               >
                 <Facebook className="w-5 h-5 text-card" />
               </a>
+              <a
+                href={SOCIAL_LINKS.email}
+                className="w-10 h-10 rounded-full bg-card/10 hover:bg-sunshine transition-colors flex items-center justify-center"
+                aria-label="Email"
+              >
+                <Mail className="w-5 h-5 text-card" />
+              </a>
             </div>
           </div>
 
@@ -81,12 +89,9 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-card/20 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div className="border-t border-card/20 pt-8 flex justify-center items-center">
           <p className="text-sm text-card/70">
             © {currentYear} Vrindavan Early Learning Centre. All rights reserved.
-          </p>
-          <p className="text-sm text-card/70 flex items-center gap-1">
-            Made with <Heart className="w-4 h-4 text-peach fill-peach" /> in Kharghar
           </p>
         </div>
       </div>
