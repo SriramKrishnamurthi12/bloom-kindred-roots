@@ -118,7 +118,12 @@ const ContactSection = () => {
               </div>
             </div>
 
-            <div className="bg-card rounded-2xl p-6 shadow-card border border-border/50">
+            <a 
+              href="https://wa.me/918591698387" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="block bg-card rounded-2xl p-6 shadow-card border border-border/50 hover:border-primary/30 transition-colors"
+            >
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-sky flex items-center justify-center shrink-0">
                   <MessageCircle className="w-6 h-6 text-card" />
@@ -126,18 +131,28 @@ const ContactSection = () => {
                 <div>
                   <h3 className="text-lg font-heading font-bold text-foreground mb-1">WhatsApp</h3>
                   <p className="text-muted-foreground">
-                    <a 
-                      href="https://wa.me/918591698387" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="hover:text-primary transition-colors"
-                    >
-                      Quick response via WhatsApp
-                    </a>
+                    Quick response via WhatsApp
                   </p>
                 </div>
               </div>
-            </div>
+            </a>
+
+            <a 
+              href="mailto:admin@velc.in"
+              className="block bg-card rounded-2xl p-6 shadow-card border border-border/50 hover:border-primary/30 transition-colors"
+            >
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-peach flex items-center justify-center shrink-0">
+                  <Mail className="w-6 h-6 text-secondary-foreground" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-heading font-bold text-foreground mb-1">Email</h3>
+                  <p className="text-muted-foreground">
+                    admin@velc.in
+                  </p>
+                </div>
+              </div>
+            </a>
 
             <div className="bg-card rounded-2xl p-6 shadow-card border border-border/50">
               <div className="flex items-start gap-4">

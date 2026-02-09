@@ -102,13 +102,6 @@ const HeroSlider = () => {
                   >
                     Enroll Now
                   </Button>
-                  <Button 
-                    variant="heroOutline" 
-                    size="xl"
-                    onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                  >
-                    Schedule Visit
-                  </Button>
                 </div>
               </motion.div>
             </AnimatePresence>

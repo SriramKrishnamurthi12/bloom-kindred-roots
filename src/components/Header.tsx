@@ -64,10 +64,12 @@ const Header = () => {
               variant="warm" 
               size="lg" 
               className="gap-2"
-              onClick={() => scrollToSection("#contact")}
+              asChild
             >
-              <Phone className="w-4 h-4" />
-              Enquire Now
+              <a href="tel:+918591698387">
+                <Phone className="w-4 h-4" />
+                Enquire Now
+              </a>
             </Button>
           </div>
 
@@ -105,10 +107,12 @@ const Header = () => {
                 variant="warm" 
                 size="lg" 
                 className="mt-4 gap-2"
-                onClick={() => scrollToSection("#contact")}
+                asChild
               >
-                <Phone className="w-4 h-4" />
-                Enquire Now
+                <a href="tel:+918591698387">
+                  <Phone className="w-4 h-4" />
+                  Enquire Now
+                </a>
               </Button>
             </nav>
           </motion.div>
