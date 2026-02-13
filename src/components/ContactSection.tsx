@@ -32,7 +32,7 @@ const ContactSection = () => {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <div className="bg-card rounded-2xl p-6 shadow-card border border-border/50">
+            <a href="https://maps.app.goo.gl/YgZeJc1BCXaAwC5SA" target="_blank" rel="noopener noreferrer" className="block bg-card rounded-2xl p-6 shadow-card border border-border/50 hover:shadow-medium transition-shadow cursor-pointer">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-forest flex items-center justify-center shrink-0">
                   <MapPin className="w-6 h-6 text-primary-foreground" />
@@ -46,7 +46,7 @@ const ContactSection = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </a>
 
             <div className="bg-card rounded-2xl p-6 shadow-card border border-border/50">
               <div className="flex items-start gap-4">
