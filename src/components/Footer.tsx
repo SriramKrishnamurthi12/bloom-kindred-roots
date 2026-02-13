@@ -2,7 +2,7 @@ import { Instagram, Facebook, MessageCircle, Mail } from "lucide-react";
 import schoolLogo from "@/assets/school-logo.jpg";
 
 const SOCIAL_LINKS = {
-  whatsapp: "https://wa.me/918591698387",
+  whatsapp: "https://wa.me/918591698387?text=Hello%20I%20would%20like%20to%20know%20more%20about%20admissions%20at%20Vrindavan%20Early%20Learning%20Centre",
   instagram: "https://www.instagram.com/vrind_avan114?igsh=a2RmeHNxamw4eWc5",
   facebook: "https://www.facebook.com/share/15WFULjH9ZP/",
   email: "mailto:admin@velc.in",
